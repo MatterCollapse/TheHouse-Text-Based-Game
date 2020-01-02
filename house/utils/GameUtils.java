@@ -19,6 +19,7 @@ public class GameUtils //Provides the base utilities to be used in Main and each
     
     public static boolean frontDoorOpen = false;
     public static boolean openingFrontDoor = false;
+    public static boolean gateOpen = true;
     public static boolean monsterReleased = false;
 
     public static Map<String, Location> lctns = new HashMap<>();
@@ -45,7 +46,7 @@ public class GameUtils //Provides the base utilities to be used in Main and each
             }
         }
 
-        System.out.println("Input action. Type 'look around' or 'examine' to get more details on your location. " + END_OF_LINE);
+        System.out.println("What will you do next? Type 'look around' or 'examine' to get more details on your location, or type the action you wish to commit. " + END_OF_LINE);
         String result = scanner.nextLine();
         pause(1);
         System.out.println(END_OF_LINE);

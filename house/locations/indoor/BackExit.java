@@ -17,11 +17,11 @@ public class BackExit extends Location
         }, new LocationInfo(this.getName(), "There is a small window into the kitchen, and an air conditioning box over the secondary door. " + END_OF_LINE + "Literally nothing else."));
 
         inputs.put(new String[] {
-            "yard", "back", "out", "leave", "backyard"
+            "yard", "back", "out", "leave", "backyard", "forest", "grass"
         }, new LocationInfo("backYard", "you pass through to the back yard. "));
 
         inputs.put(new String[] {
-            "inside", "go in", "kitchen", "house", "living room"
+            "inside", "go in", "kitchen", "house", "living room", "front door"
         }, new LocationInfo("kitchen", "you open the secondary door and enter the kitchen. "));
     }
     

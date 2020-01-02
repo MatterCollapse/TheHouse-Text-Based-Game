@@ -36,8 +36,10 @@ public class Location { //default location class, parent to all locations
             {
                 GameUtils.monsterReleased = true;
                 Monster.position = "backYard";
-                System.out.println("You push an empty bottle with your foot. It rolls and hits a bootom drawer with a clink. ");
-                System.out.println("Something outside responds. The chill down your spine is telling you not to check it out. ");
+                GameUtils.gateOpen = false;
+                System.out.println("Quite empty, although... " + GameUtils.END_OF_LINE + "Under those cardboard boxes you see the sharp edge of something black. covering your nose, you pull up the large pile of rotting cardboard. The underside is not as disgusting as you thought, just layers of dark dirt. " + GameUtils.END_OF_LINE + "The box is metal and painted black. The lock was busted by a blunt object and one of the sides is bent in. You pry the lid open partway with your keys, then pull the edge of the lid open by force. The walls of the box are very thin. " + GameUtils.END_OF_LINE + "Inside are multiple layers of dry rags and plastic wrap, and underneath you pull out a small black pendant. It is black metal too. You don't know the abstract shape but you know this is what you were looking for" + GameUtils.END_OF_LINE + "You pocket it and walk back over to the ladder. ");
+                System.out.println("You push an empty bottle with your foot walking back. It rolls and hits the base of a shelf with a clink. ");
+                System.out.println("Something up above responds. You hear rattling throughout the house upstairs. The chill down your spine is telling you not to check it out. ");
             }
             else if(location.event == "unlock")
             {
@@ -79,13 +81,48 @@ public class Location { //default location class, parent to all locations
             {
                 if(GameUtils.monsterReleased) 
                 {
-                    System.out.println("You jump into the car, turn the ignition, put the car in reverse and step on the gas. " + END_OF_LINE + "As you drive out onto the near road you see something open the front door. " + END_OF_LINE + "It is tall and shapeless. " + END_OF_LINE + "Your farsighted vision must have gotten worse, because you couldn't tell what it looked like, or even what color it was. ");
-                    GameUtils.pause(10);
-                    System.exit(0);
+                    if(GameUtils.gateOpen)
+                    {
+                        System.out.println("You jump into the car, turn the ignition, put the car in reverse and step on the gas. " + END_OF_LINE + "As you drive out onto the near road you see something open the front door. " + END_OF_LINE + "It is tall and shapeless. " + END_OF_LINE + "Your farsighted vision must have gotten worse, because you couldn't tell what it looked like, or even what color it was. ");
+                        GameUtils.pause(10);
+                        System.exit(0);
+                    }
+                    else
+                    {
+                        System.out.println("The gate is closed. While the resultant scratches aren't a primary concern at the moment, you are still not busting down the gate with your car. ");
+                    }
                 }
                 else
                 {
                     System.out.println("You don't need to go yet. ");
+                }
+            }
+            else if(location.event == "opengate")
+            {
+                if(GameUtils.gateOpen)
+                {
+                    System.out.println("The Gate is already open. ");
+                    GameUtils.pause(10);
+                }
+                else
+                {
+                    System.out.println("You push the gate out and it swings wide open. ");
+                    GameUtils.gateOpen = true;
+                    GameUtils.pause(10);
+                }
+            }
+            else if(location.event == "closegate")
+            {
+                if(GameUtils.gateOpen)
+                {
+                    System.out.println("You walk out to get both sides of the gate and line them up to make them look closed. Mission accomplished. ");
+                    GameUtils.gateOpen = false;
+                    GameUtils.pause(10);
+                }
+                else
+                {
+                    System.out.println("The gate is already closed... so to speak. ");
+                    GameUtils.pause(10);
                 }
             }
 

@@ -15,12 +15,16 @@ import java.util.ArrayList;
 public class Monster
 {
     public static String position = "ether";
+    public static int attempt = 3;
 
     public static void monsterTurn() //called from Main when the monster must move
     {
         List<String> possibleMoves = new ArrayList<>();
 
-        possibleMoves.add(position);
+        if(attempt <= 1)
+        {
+            possibleMoves.add(position);
+        }
         switch(position)
         {
             case "backExit":
@@ -74,8 +78,20 @@ public class Monster
     {
         if(position == GameUtils.location) 
         {
-            return true;
+            if(attempt == 1)
+            {
+                return true;
+            }
+            else if(attempt == 2)
+            {
+                System.out.println("He reaches out at you faster than before, scratching your shoulder and pulling blood. You reel back and run. Find another room, he seems to have be getting more aggresive. ");
+            }
+            else
+            {
+                System.out.println("You jump back before it can grab you. You don't know what it is but you know you don't want it touching you. It's intent on getting you, run to a different room, it might fall behind. ");
+            }
         }
+        attempt--;
         return false;
     }
 }

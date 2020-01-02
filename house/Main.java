@@ -10,11 +10,11 @@ import house.locations.indoor.*;
 import house.utils.GameUtils;
 
 public class Main //Begins the game with a starting screen
-{
+{ 
     public static final String END_OF_LINE = System.lineSeparator();
     
     private static final Map<String, Location> lctns = new HashMap<>();
-
+    //TODO: ADD SYNONYMS
     public static void main(String[] args)
     {
         lctns.put("arrival", new Arrival("arrival", lctns)); //List new locations here
@@ -22,12 +22,15 @@ public class Main //Begins the game with a starting screen
         lctns.put("frontDoor", new FrontDoor("frontDoor", lctns));
         lctns.put("sidePath", new SidePath("sidePath", lctns));
         lctns.put("backYard", new BackYard("backYard", lctns));
+        lctns.put("gate", new Gate("gate", lctns));
 
         lctns.put("backExit", new BackExit("backExit", lctns));
         lctns.put("kitchen", new Kitchen("kitchen", lctns));
         lctns.put("laundryRoom", new LaundryRoom("laundryRoom", lctns));
         lctns.put("livingRoom", new LivingRoom("livingRoom", lctns));
         lctns.put("restroom", new Restroom("restroom", lctns));
+        lctns.put("basement", new Basement("basement", lctns));
+        lctns.put("bedroom", new Bedroom("bedroom", lctns));
         GameUtils.lctns = lctns;
 
         System.out.println("Story this = new Story (\"The House\", 1); ");
